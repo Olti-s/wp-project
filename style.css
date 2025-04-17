@@ -13,3 +13,18 @@ Theme Name :Portfolio theme
  Text Domain: writters blog theme idea
 
  */
+ 
+#topw{
+    text-align: center;
+    margin-top: 55px;
+    color: #000;
+}
+
+#box{
+  
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:12%;
+    margin-left: 140px;
+    margin-top: 120px;
+}
