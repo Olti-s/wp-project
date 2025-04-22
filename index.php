@@ -4,37 +4,206 @@
 
 <?php ?>
 
-<h1 id="topw" >New Literature Posts</h1>
-<div id="box">
-<div  class="card" style="width: 19rem;" >
-  <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Echo of the old books</h5>
-    <p class="card-text">Rare-book dealer Ashlyn Greer’s affinity for books extends beyond the intoxicating scent of old paper, ink, and leather. She can feel the echoes of the books’ previous owners—an emotional fingerprint only she can read. When Ashlyn discovers a pair of beautifully bound volumes that appear to have never been published, her gift quickly becomes an obsession. </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.section__container {
+  padding: 5rem 1rem;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.section__title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section__subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--primary-color);
+  margin-bottom: 5rem;
+  text-align: center;
+}
 
 
-<div class="card" style="width: 18rem;">
-  <img src="<?php echo get_template_directory_uri();  ?>p1.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Echo of the old books</h5>
-    
-    <p class="card-text"></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+   
+   
+   .journey__container {
+  background-color: #e8f1fa;
+}
+
+.journey__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.book__card {
+  background-color: #f3f4f6;
+}
+
+.book__name {
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color:#767268;
+  cursor: pointer;
+}
+
+.book__name i {
+  font-size: 1.2rem;
+}
+
+.book__name span {
+  font-style: italic;
+}
+
+.banner__container {
+  background-image: linear-gradient(
+      rgba(35, 71, 103, 0.5),
+      rgba(35, 71, 103, 0.5)
+    ),
+    url("assets/bg-2.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner__container .section__container {
+  padding: 10rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.banner__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  color: #f3f4f6;
+}
+
+.banner__content h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.banner__content button {
+  padding: 0.5rem 2rem;
+  outline: none;
+  border: 2px solid #e8f1fa;
+  background-color: transparent;
+  color: #e8f1fa;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.display__container {
+  background-color: #e8f1fa;
+}
+
+.display__container :is(.section__title, .section__subtitle) {
+  color:#282d31;;
+}
+
+.display__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.display__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #f3f4f6;
+  text-align: center;
+}
+
+.display__card i {
+  font-size: 2rem;
+  color: #669ccb;
+}
+
+.display__card h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 1rem;
+  color: #282d31;;
+}
+
+.display__card p {
+  font-size: 0.8rem;
+  padding: 0 1rem;
+  color: #282d31;;
+}
+
+.display__grid .grid-1 {
+  grid-area: 1/1/3/3;
+}
+
+  </style>
+</head>
+<body>
+  
 
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
 
+<section class="journey__container">
+      <div class="section__container">
+        <h2 class="section__title">Start Your Journey</h2>
+        <p class="section__subtitle">The most searched bookks in April</p>
+        <div class="journey__grid">
+        <div class="book__card">
+            <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
+            <div class="book__name">
+              <i class="ri-map-pin-2-fill"></i>
+              <span>Echo of the old book</span>
+            </div>
+          </div>
+          <div class="book__card">
+            <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
+            <div class="book__name">
+              <i class="ri-map-pin-2-fill"></i>
+              <span>Echo of the old book</span>
+            </div>
+          </div>
+          <div class="book__card">
+            <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
+            <div class="book__name">
+              <i class="ri-map-pin-2-fill"></i>
+              <span>Echo of the old book</span>
+            </div>
+          </div>
+          <div class="book__card">
+            <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
+            <div class="book__name">
+              <i class="ri-map-pin-2-fill"></i>
+              <span>Echo of the old book</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
 
+</body>
+</html>
