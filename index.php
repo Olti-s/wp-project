@@ -243,6 +243,43 @@ img{
                     ?>
                 </div>
             </div>
+            <div class="container my-5" id="other-pages">
+                <h2 class="text-center mb-4">Other Pages</h2>
+                <div class="row">
+                    <?php
+                   
+                    $args = [
+                        'post_type' => 'page', 
+                        'post_status' => 'publish', 
+                        'posts_per_page' => -1, 
+                    ];
+                    $query = new WP_Query($args);
 
+                    if ($query->have_posts()) :
+                        while ($query->have_posts()) : $query->the_post();
+                    ?>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <a href="<?php the_permalink(); ?>">
+                                            <img src="<?php the_post_thumbnail_url('medium'); ?>" class="card-img-top" alt="<?php the_title(); ?>">
+                                        </a>
+                                    <?php endif; ?>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">
+                                            <a href="<?php the_permalink(); ?>" class="text-dark text-decoration-none"><?php the_title(); ?></a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    else :
+                        echo '<p class="text-center">No pages found.</p>';
+                    endif;
+                    ?>
+                </div>
+            </div>
 </body>
 </html>
