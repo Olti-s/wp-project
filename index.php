@@ -52,7 +52,7 @@
 }
 
 .book__card {
-  background-color: #f3f4f6;
+  background-color:;
 }
 
 .book__name {
@@ -73,21 +73,20 @@
   font-style: italic;
 }
 
-.banner__container {
-  background-image: linear-gradient(
-      rgba(35, 71, 103, 0.5),
-      rgba(35, 71, 103, 0.5)
-    ),
-    url("assets/bg-2.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 
 .banner__container .section__container {
   padding: 10rem 1rem;
   display: flex;
   justify-content: center;
+}
+img{
+  margin-left:200px;
+  height: 300px;
+}
+#title{
+  margin-left:200px;
+ 
 }
 
 .banner__content {
@@ -156,9 +155,7 @@
   color: #282d31;;
 }
 
-.display__grid .grid-1 {
-  grid-area: 1/1/3/3;
-}
+
 
   </style>
 </head>
@@ -169,41 +166,83 @@
 
 <section class="journey__container">
       <div class="section__container">
-        <h2 class="section__title">Start Your Journey</h2>
-        <p class="section__subtitle">The most searched bookks in April</p>
+        <h2 class="section__title">Start your Reading Journey</h2>
+        <p class="section__subtitle">The most searched books in April</p>
         <div class="journey__grid">
         <div class="book__card">
             <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
             <div class="book__name">
               <i class="ri-map-pin-2-fill"></i>
-              <span>Echo of the old book</span>
+              <span id="title">Echo of the old book</span>
+
             </div>
           </div>
           <div class="book__card">
-            <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
+            <img src="<?php echo get_template_directory_uri();  ?>/img/flame.jpg" alt="country" />
             <div class="book__name">
               <i class="ri-map-pin-2-fill"></i>
-              <span>Echo of the old book</span>
+              <span id="title">  Iron Flame</span>
             </div>
           </div>
           <div class="book__card">
-            <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
+            <img src="<?php echo get_template_directory_uri();  ?>/img/elin.png" alt="country" />
             <div class="book__name">
               <i class="ri-map-pin-2-fill"></i>
-              <span>Echo of the old book</span>
+              <span id="title" >Golden Girl by Elin Hilder</span>
             </div>
           </div>
           <div class="book__card">
-            <img src="<?php echo get_template_directory_uri();  ?>/img/doors.jpg" alt="country" />
+            <img src="<?php echo get_template_directory_uri();  ?>/img/maid.jpg" alt="country" />
             <div class="book__name">
               <i class="ri-map-pin-2-fill"></i>
-              <span>Echo of the old book</span>
+              <span id="title">The Maid</span>
             </div>
           </div>
           
         </div>
       </div>
     </section>
+     
+    <div class="container my-5">
+                <h2 class="text-center mb-4">Latest Books</h2>
+                <div class="row">
+                    <?php
+                    
+                    $args = [
+                        'post_type' => 'post', 
+                        'posts_per_page' => 6, 
+                    ];
+                    $query = new WP_Query($args);
+
+                    if ($query->have_posts()) :
+                        while ($query->have_posts()) : $query->the_post();
+                    ?>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <a href="<?php the_permalink(); ?>">
+                                            <img src="<?php the_post_thumbnail_url('medium'); ?>" class="card-img-top" alt="<?php the_title(); ?>">
+                                        </a>
+                                    <?php endif; ?>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">
+                                            <a href="<?php the_permalink(); ?>" class="text-dark text-decoration-none"><?php the_title(); ?></a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    else :
+                        echo '<p class="text-center">No Book found.</p>';
+                    endif;
+                    ?>
+                </div>
+            </div>
 
 </body>
 </html>
